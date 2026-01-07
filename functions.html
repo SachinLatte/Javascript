@@ -10,50 +10,61 @@
 </head>
 <body>
   <h1>Bat Ball Stump Game</h1>
-  <button onclick=" generateComputerChoice();
-  alert(`You Have Chosen Bat.\n Computer Have Chosen ${computerChoice}\n Match Result Is:  ${resultMsg}`);
-  ">Bat</button>
-  <button onclick="
-  generateComputerChoice();
-  if(computerChoice === 'Ball'){
-    resultMsg = 'Match Draw!';
-  }else if(computerChoice === 'Stump'){
-   resultMsg = 'You Win!';
-  }else if(computerChoice === 'Bat'){
-    resultMsg = 'You Loose!';
-  }
-  alert(`You Have Chosen Ball.\n Computer Have Chosen ${computerChoice}\n Match Result Is:  ${resultMsg}`);
-  ">Ball</button>
-  <button onclick="
-  generateComputerChoice();
-  if(computerChoice === 'Ball'){
-    resultMsg = 'You Loose!';
-  }else if(computerChoice === 'Stump'){
-   resultMsg = 'Match Draw!';
-  }else if(computerChoice === 'Bat'){
-    resultMsg = 'You Won!';
-  }
-  alert(`You Have Chosen Stump.\n Computer Have Chosen ${computerChoice}\n Match Result Is:  ${resultMsg}`);
-  ">Stump</button>
+  <button onclick="let computerChoice = generateComputerChoice(); 
+  let resultMsg = getResults('Bat',computerChoice); 
+  showResult('Bat',computerChoice,resultMsg);"
+  >Bat</button>
+  <button onclick="computerChoice = generateComputerChoice(); 
+  resultMsg = getResults('Ball',computerChoice); 
+  showResult('Ball',computerChoice,resultMsg);"
+  >Ball</button>
+  <button onclick="computerChoice = generateComputerChoice();
+   resultMsg = getResults('Stump',computerChoice); 
+   showResult('Stump',computerChoice,resultMsg);"
+   >Stump</button>
   <script>
-    let computerChoice;
     function generateComputerChoice(){
       let randomNumber = Math.random() * 3;
       if(randomNumber>0 && randomNumber<=1){
-        computerChoice = 'Bat';
+        return 'Bat';
       }else if(randomNumber>1 && randomNumber<=2){
-      computerChoice = 'Ball';
+      return 'Ball';
       }else{
-        computerChoice = 'Stump';
+        return 'Stump';
       }
     }
 
     function getResults(userMove, computerMove){
-  if(computerMove === userMove){
-    return  'Match Draw!';
-  }else if(computerMove === 'Bat' && userMove === 'Ball'){
-      return 'You Loose!'
-  }
+  if(userMove === 'Bat'){
+    if(computerMove === 'Ball'){
+      return 'You Win!';
+      }else if(computerMove ==='Stump'){
+        return 'You Loose!';
+      }else if(computerMove === 'Bat'){
+        return 'Match Draw!';
+      }
+    }else if(userMove === 'Ball'){
+    if(computerMove === 'Ball'){
+      return 'Match Draw!';
+      }else if(computerMove ==='Stump'){
+        return 'You Win!';
+      }else if(computerMove === 'Bat'){
+        return 'You Loose!';
+      }
+    }else{
+      if(computerMove === 'Ball'){
+        return 'You Loose!';
+        }else if(computerMove === 'Stump'){
+              return 'Match Draw!';
+        }else if(computerMove === 'Bat'){
+              return 'You Won!';
+        }
+    }
+    }
+
+
+    function showResult(userMove, computerMove,result){
+        alert(`You have chosen ${userMove}\n Computer Choice is ${computerMove}\n ${result}`)
     }
 
   //   function determineDriveStatus(){
