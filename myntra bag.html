@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Myntra Bag</title>
+</head>
+<body>
+  <div class="container">
+    <button onclick="cartQuantity++; document.getElementById('heading').innerText = `Your bag has ${cartQuantity} items`;" >Add To Bag</button>
+    <button onclick="cartQuantity--; document.getElementById('heading').innerText = `Your bag has ${cartQuantity} items`;">Move To Wishlist</button>
+    <button onclick="cartQuantity+=2; document.getElementById('heading').innerText = `Your bag has ${cartQuantity} items`;">Add 1 + 1 Sale  Item</button>
+    <h1 id="heading"></h1>
+  <h1 id="name-display"></h1>
+  </div>
+ <script src="js/index.js"></script> 
+ <script>
+  const myName = 'Sachin';
+  console.log(myName);
+  document.querySelector('#name-display').innerHTML = myName;
+  const GSTpercentage = 18;
+  let cartValue = Math.round(((15599 - (10/100 * 15599)) - 272 + (2499 - (41/100*2499)) - 29 + 25 + 20) * (100 + GSTpercentage) / 100);
+    console.log(cartValue);
+    console.log(eval('5+5'));
+ </script>
+</body>
+</html>
