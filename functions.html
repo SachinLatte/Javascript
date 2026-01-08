@@ -34,37 +34,53 @@
       }
     }
 
-    function getResults(userMove, computerMove){
+   let score ={
+      win:0,
+      tie:0,
+      loose:0,
+    } 
+  function getResults(userMove, computerMove){
   if(userMove === 'Bat'){
     if(computerMove === 'Ball'){
+      score.win++;
       return 'You Win!';
       }else if(computerMove ==='Stump'){
+        score.loose++
         return 'You Loose!';
       }else if(computerMove === 'Bat'){
+        score.tie++;
         return 'Match Draw!';
       }
     }else if(userMove === 'Ball'){
     if(computerMove === 'Ball'){
+      score.tie++;
       return 'Match Draw!';
       }else if(computerMove ==='Stump'){
+        score.win++;
         return 'You Win!';
       }else if(computerMove === 'Bat'){
+        score.loose++
         return 'You Loose!';
       }
     }else{
       if(computerMove === 'Ball'){
+        score.loose++
         return 'You Loose!';
         }else if(computerMove === 'Stump'){
-              return 'Match Draw!';
+          score.tie++;
+          return 'Match Draw!';
         }else if(computerMove === 'Bat'){
-              return 'You Won!';
+          score.win++
+            return 'You Won!';
         }
     }
     }
 
 
     function showResult(userMove, computerMove,result){
-        alert(`You have chosen ${userMove}\n Computer Choice is ${computerMove}\n ${result}`)
+      console.log(score);
+        alert(`You have chosen ${userMove}\n Computer Choice is ${computerMove}\n ${result}\n
+        Wins: ${score.win} | Looses: ${score.loose} | Ties: ${score.tie}`);
     }
 
   //   function determineDriveStatus(){
@@ -90,6 +106,37 @@
   //   console.log(`Namaste ${name} Uncle`)
   // }
   // greetings('Titu');
+
+
+
+  function checkOddEven(num){
+    let rem = num % 2;
+    if(rem === 0){
+      return 'The given number is Even';
+    }else{
+      return 'The given number is Odd';
+    }
+  }
+// console.log(checkOddEven(10));
+// console.log(checkOddEven(13));
+// console.log(checkOddEven(2));
+// console.log(checkOddEven(21));
+
+function bigger(num1, num2){
+  if(num1>num2){
+    return num1
+  }else{
+    return num2
+  }
+}
+// console.log(bigger(10,5));
+// console.log(bigger(5,5));
+// console.log(bigger(-100,1));
+
+function toFehrenheit(celsius){
+  return 9/5 * celsius + 32;
+}
+// console.log(toFehrenheit(38));
   </script>
 </body>
 </html>

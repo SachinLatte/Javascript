@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Objects Practise</title>
+</head>
+<body>
+  <script>
+
+
+    //Practise set 1
+    let product = {
+      company:'Mango',
+      category: 'T-Shirts',
+      price:899,
+      'delivery-time':'7 days',
+    }
+    console.log(product);
+    console.log(product.category);
+    console.log(product['delivery-time']);
+
+
+    //Practise set 2
+    let copyproduct = product;
+    console.log(product);
+    copyproduct.price = 799;
+    console.log(product); 
+    copyproduct.company = 'Levis';
+    console.log(product);
+
+
+    //Practise set 3
+    let obj = {
+      message: 'Good Job',
+      status: 'Success'
+    }
+    console.log(obj)
+    let {message} = obj;
+    console.log(message);
+    let {status} = obj;
+    console.log(status);
+    console.log(message,status)
+  </script>
+</body>
+</html>
