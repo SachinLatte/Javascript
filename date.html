@@ -4,6 +4,8 @@
   <title>Date</title>
 </head>
 <body>
+  <p id="paragraph">This is Paragraph</p>
+  <button id="remove">Remove</button>
   <script>
     let myDate = new Date();
     console.log(myDate)
@@ -23,7 +25,22 @@
     console.log(price);
     localStorage.setItem('product', JSON.stringify(product));
     let retrievedProduct= JSON.parse(localStorage.getItem('product'));
-    console.log(retrievedProduct)
+    console.log(retrievedProduct);
+
+    let btn = document.createElement('button');
+    btn.innerText = 'Click Me';
+    document.querySelector('#paragraph').appendChild(btn);
+    btn.classList.add('btn-primary', 'main-btn');
+    document.querySelector('#remove').addEventListener('click',function(){
+      btn.classList.remove('btn-primary');
+      document.body.style.backgroundColor = 'lightblue';
+    });
+    let fruits = ['Apple','Banana','Mango','Orange'];
+        fruits.push('Pineapple');
+    for(const fruit of fruits){
+      console.log(fruit);
+    }
+    console.log(fruits);
   </script>
 </body>
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JSON Practice</title>
+  <style>
+    #myBtn{
+      color: #fff;
+      background-color: #000;
+      border: none;
+      outline: none;
+      padding: 12px;
+      font-size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: pointer;
+    }
+    .odd{
+      background-color: orange!important;
+    }
+    .even{
+      background-color: lawngreen!important;
+    }
+  </style>
+</head>
+<body>
+  
+  <button onclick="buttonPressed()" id="myBtn"></button>
+  <script>
+    //Practice Set 1
+    let date = new Date();
+    let hours = date.getHours();
+    let name = 'Amey'
+    function greetings(){
+      if(hours >=13 && hours <=18){
+        return `Hi ${name}, Good Afternoon`;
+    }else if(hours>18 && hours <=24){
+        return `Hi ${name},Good Night`;
+    }else{
+        return `Hi ${name},Good Morning`;
+    }
+    }
+    console.log(greetings());
+
+
+    //practice Set 2
+      let count = localStorage.getItem('clickCount') || 0;
+      function buttonPressed(){
+        count++;
+        updateButton();
+        localStorage.setItem('clickCount',count);
+      }
+    function updateButton(){
+      let myBtn = document.querySelector('#myBtn');
+      if(count%2===0){
+        myBtn.classList.add('even');
+        myBtn.classList.remove('odd');
+      }else{
+        myBtn.classList.add('odd');
+        myBtn.classList.remove('even');
+      }
+      myBtn.innerText = `Clicked ${count} Times`;
+    }
+    updateButton();
+  </script>
+</body>
+</html>

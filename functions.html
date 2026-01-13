@@ -23,6 +23,10 @@
    showResult('Stump',computerChoice,resultMsg);"
    >Stump</button>
    <button onclick="localStorage.clear(); resetScore()">Reset</button>
+   <h3 id="your-move"></h3>
+   <h3 id="computer-move"></h3>
+   <h3 id="result"></h3>
+   <h3 id="match-score"></h3>
   <script>
    let scoreStr = localStorage.getItem('score');
     let score;
@@ -35,8 +39,9 @@
       loose:0,
     } 
     score.displayScore = function(){
-      return `Wins: ${this.win} | Looses: ${this.loose} | Ties: ${this.tie}`;
+      return `Score: Wins: ${this.win} | Looses: ${this.loose} | Ties: ${this.tie}`;
     }
+    showResult();
     }
     
     function generateComputerChoice(){
@@ -91,8 +96,10 @@
     function showResult(userMove, computerMove,result){
       localStorage.setItem('score', JSON.stringify(score));
       console.log(score);
-        alert(`You have chosen ${userMove}\n Computer Choice is ${computerMove}\n ${result}\n
-        Wins: ${score.win} | Looses: ${score.loose} | Ties: ${score.tie}`);
+      document.querySelector('#your-move').innerText = userMove ?`You have chosen:${userMove}`:'';
+      document.querySelector('#computer-move').innerText = computerMove  ?`Computer Choice Is:${computerMove}`:'';
+      document.querySelector('#result').innerText = result  || '';
+      document.querySelector('#match-score').innerText = score.displayScore();
     }
 
   //   function determineDriveStatus(){
