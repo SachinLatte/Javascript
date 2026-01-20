@@ -6,3 +6,9 @@ text-align: center;
 #main-heading{
   text-align: center;
 }
+.todo-container{
+  display: grid;
+  grid-template-columns: 150px 120px 100px;
+  justify-content: center;
+  text-align: left;
+}
